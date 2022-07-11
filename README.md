@@ -1,1 +1,0 @@
-# Olympiad in Informatics
