@@ -4,22 +4,25 @@ using namespace std;
 
 long long a, b, p;
 
-unsigned long long c, x, y;
-
-long long ans;
+unsigned long long mul(unsigned long long a, unsigned long long b, unsigned long long p) {
+    a %= p;
+    b %= p;
+    
+    unsigned long long c = (long double)a * b / p;
+    unsigned long long x = a * b;
+    unsigned long long y = c * p;
+    
+    long long ans = (long long)(x % p) - (long long)(y % p);
+    
+    if (ans < 0) ans += p;
+    
+    return ans;
+}
 
 int main() {
 	cin >> a >> b >> p;
 	
-	c = (long double)a * b / p;
-	x = a * b;
-	y = c * p;
-	
-	ans = (long long)(x % p) - (long long)(y % p);
-	
-	if (ans < 0) ans += p;
-	
-	cout << ans << endl;
+	cout << mul(a, b, p);
 	
 	return 0;
 }
