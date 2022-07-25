@@ -4,7 +4,7 @@ using namespace std;
 
 int a, b, p;
 
-int fast_pow(int a, int b, int p) {
+int pow(int a, int b, int p) {
     int ans = 1 % p;
     
     while (b) {
@@ -19,7 +19,7 @@ int fast_pow(int a, int b, int p) {
 int main() {
 	cin >> a >> b >> p;
 	
-	cout << fast_pow(a, b, p) << endl;
+	cout << pow(a, b, p) << endl;
 	
 	return 0;
 }
