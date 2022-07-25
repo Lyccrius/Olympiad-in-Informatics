@@ -4,17 +4,22 @@ using namespace std;
 
 long long a, b, p;
 
-long long ans;
+long long mul(long long a, long long b, long long p) {
+    long long ans = 0;
+    
+    while (b) {
+        if (b & 1) ans = (ans + a) % p;
+        a = a * 2 % p;
+        b >>= 1;
+    }
+    
+    return ans;
+}
 
 int main() {
 	cin >> a >> b >> p;
 	
-	for (; b; b >>= 1) {
-		if (b & 1) ans = (ans + a) % p;
-		a = a * 2 % p;
-	}
-	
-	cout << ans << endl;
+	cout << mul(a, b, p) << endl;
 	
 	return 0;
 }
