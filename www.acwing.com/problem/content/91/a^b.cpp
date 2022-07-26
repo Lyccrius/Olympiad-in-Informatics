@@ -4,8 +4,6 @@ using namespace std;
 
 int a, b, p;
 
-int ans;
-
 int pow(int a, int b, int p) {
     int ans = 1 % p;
     
@@ -21,7 +19,7 @@ int pow(int a, int b, int p) {
 int main() {
 	cin >> a >> b >> p;
 
-    ans = pow(a, b, p);
+    int ans = pow(a, b, p);
 	
 	cout << ans << endl;
 	
