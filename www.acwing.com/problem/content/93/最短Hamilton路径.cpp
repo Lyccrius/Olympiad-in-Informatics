@@ -8,8 +8,6 @@ int a[20][20];
 
 int f[1 << 20][20];
 
-int ans;
-
 int hamilton(int n, int weight[20][20]) {
     memset(f, 0x3f, sizeof(f));
 
@@ -39,7 +37,7 @@ int main() {
         }
     }
 
-    ans = hamilton(n, a);
+    int ans = hamilton(n, a);
 
     cout << ans << endl;
 
