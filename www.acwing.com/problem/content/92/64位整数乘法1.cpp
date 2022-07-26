@@ -4,8 +4,6 @@ using namespace std;
 
 long long a, b, p;
 
-long long ans;
-
 long long mul(long long a, long long b, long long p) {
     long long ans = 0;
     
@@ -21,7 +19,7 @@ long long mul(long long a, long long b, long long p) {
 int main() {
 	cin >> a >> b >> p;
 	
-    ans = mul(a, b, p);
+    long long ans = mul(a, b, p);
 
 	cout << ans << endl;
 	
