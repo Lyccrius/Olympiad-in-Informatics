@@ -4,6 +4,8 @@ using namespace std;
 
 long long a, b, p;
 
+unsigned long long ans;
+
 unsigned long long mul(unsigned long long a, unsigned long long b, unsigned long long p) {
     a %= p;
     b %= p;
@@ -21,8 +23,10 @@ unsigned long long mul(unsigned long long a, unsigned long long b, unsigned long
 
 int main() {
 	cin >> a >> b >> p;
+
+    ans = mul(a, b, p);
 	
-	cout << mul(a, b, p);
+	cout << ans << endl;
 	
 	return 0;
 }
