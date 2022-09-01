@@ -35,7 +35,7 @@ int resi[100010],  reso[100010];
 
 typedef pair<int, int> pii;
 
-void calc(flight *fli, int m, int *res) {
+void calc(flight fli[], int m, int res[]) {
     priority_queue<pii, vector<pii>, greater<pii> > wait;
     priority_queue<int, vector<int>, greater<int> > free;
 
