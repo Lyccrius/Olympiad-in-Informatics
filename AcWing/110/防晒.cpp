@@ -4,54 +4,43 @@ using namespace std;
 
 int C, L;
 
-struct Cow{
-    int minSPF;
-    int maxSPF;
+pair<int, int>cow[2510];
+pair<int, int>cre[2510];
 
-    bool operator < (const Cow &x) const {
-        return minSPF > x.minSPF;
-    }
-}cow[2510];
-
-struct Cream{
-    int SPF;
-    int cover;
-
-    bool operator < (const Cream &x) const {
-        return SPF > x.SPF;
-    }
-}cre[2510];
+bool cmp(pair<int, int> a, pair<int, int> b) {
+    return a.first > b.first;
+}
 
 int ans = 0;
 
 int main() {
     cin >> C >> L;
 
-    for (int i = 0; i < C; i ++) {
-        cin >> cow[i].minSPF >> cow[i].maxSPF;
+    for (int i = 1; i <= C; i ++) {
+        cin >> cow[i].first >> cow[i].second;
     }
 
-    for (int i = 0; i < L; i ++) {
-        cin >> cre[i].SPF >> cre[i].cover;
+    for (int i = 1; i <= L; i ++) {
+        cin >> cre[i].first >> cre[i].second;
     }
 
-    sort(cow, cow + C);
+    sort(cow + 1, cow + C + 1, cmp);
 
-    sort(cre, cre + L);
+    sort(cre + 1, cre + L + 1, cmp);
 
-    for (int i = 0; i < C; i ++) {
-        for (int j = 0; j < L; j ++) {
-            if (cow[i].maxSPF < cre[j].SPF) {
+    for (int i = 1; i <= C; i ++) {
+        for (int j = 1; j <= L; j ++) {
+            if (cow[i].second < cre[j].first) {
                 continue;
             }
 
-            if (cow[i].minSPF > cre[j].SPF) {
+            if (cow[i].first > cre[j].first) {
                 break;
             }
 
-            if (cre[j].cover) {
+            if (cre[j].second) {
                 ans ++;
-                cre[j].cover --;
+                cre[j].second --;
                 break;
             }
         }
