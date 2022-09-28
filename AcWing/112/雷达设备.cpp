@@ -4,8 +4,6 @@ using namespace std;
 
 typedef pair<double, double> pdd;
 
-const double eps = 0.000001;
-
 int n, d;
 int x, y;
 
@@ -33,7 +31,7 @@ int main() {
 	sort(island + 1, island + n + 1);
     
 	for (int i = 1; i <= n; i ++) {
-		if (pos + eps < island[i].first) {
+		if (pos < island[i].first) {
 			ans ++;
 			pos = island[i].second;
 		} else {
