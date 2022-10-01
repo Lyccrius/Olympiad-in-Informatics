@@ -10,11 +10,11 @@ int dragon[maxn], knight[maxn];
 int main() {
   while (scanf("%d%d", &n, &m) == 2 && n && m) {
     for (int i = 1; i <= n; i++) {
-        cin >> dragon[i];
+        scanf("%d", &dragon[i]);
     }
 
     for (int i = 1; i <= m; i++) {
-        cin >> knight[i];
+        scanf("%d", &knight[i]);
     }
 
     sort(dragon + 1, dragon + n + 1);
@@ -34,9 +34,9 @@ int main() {
     }
 
     if (cur <= n) {
-        cout << "Loowater is doomed!" << endl;
+        printf("Loowater is doomed!\n");
     } else {
-        cout << cost << endl;
+        printf("%d\n", cost);
     }
   }
 
