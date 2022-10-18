@@ -23,7 +23,7 @@ struct Graph {
     };
 
     struct DSU {
-        int ancestor[maxe];
+        int ancestor[maxn];
 
         void Init(const int &x) {
             ancestor[x] = x;
