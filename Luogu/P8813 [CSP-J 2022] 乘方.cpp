@@ -6,11 +6,12 @@ int a, b;
 
 int pow(long long a, long long b) {
     long long ans = 1;
-    if ((a == mod && b != 1) || (b == mod && a != 1)) return -1;
+    if (a == 1) return 1;
+    if (a == mod && b != 1) return -1;
     while (b) {
         if (b & 1) {
             ans = ans * a;
-            if (ans > mod) {
+            if (ans > mod || ans < 0) {
                 return -1;
             }
         }
