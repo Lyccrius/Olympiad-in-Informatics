@@ -56,7 +56,7 @@ namespace Station {
         }
         return;
     }
-};
+}
 
 int main() {
     scanf("%d%d", &n, &m);

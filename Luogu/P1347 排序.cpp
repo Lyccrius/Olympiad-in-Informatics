@@ -89,7 +89,7 @@ namespace Graph {
             exit(0);
         }
     }
-};
+}
 
 int main() {
     scanf("%d%d", &n, &m);

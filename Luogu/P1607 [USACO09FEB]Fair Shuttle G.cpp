@@ -90,7 +90,7 @@ namespace Shuttle {
         PushUp(xNode);
         return;
     }
-};
+}
 
 int main() {
     scanf("%d%d%d", &K, &N, &C);

@@ -53,7 +53,7 @@ namespace Graph {
         }
         return;
     }
-};
+}
 
 int main() {
     scanf("%d", &n);
