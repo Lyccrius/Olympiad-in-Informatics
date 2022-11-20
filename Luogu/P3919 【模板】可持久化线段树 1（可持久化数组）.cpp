@@ -28,8 +28,6 @@ struct SegmentTree {
 			return;
 		}
 		int mid = (l + r) >> 1;
-		node[xNode].lNode = xNode * 2;
-		node[xNode].rNode = xNode * 2 + 1;
 		Build(array, l, mid, node[xNode].lNode);
 		Build(array, mid + 1, r, node[xNode].rNode);
 		return;
