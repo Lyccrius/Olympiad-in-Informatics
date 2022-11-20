@@ -35,10 +35,11 @@ namespace PDS {
 		return;
 	}
 
-	int Clone(int xNode) {
+	void Clone(int &xNode) {
 		cnt++;
 		node[cnt] = node[xNode];
-		return cnt;
+		xNode = cnt;
+		return;
 	}
 
 	int Query(int xNode, int x) {
@@ -55,31 +56,32 @@ namespace PDS {
 	}
 
 	int Modify(int xNode, int x, int value) {
-		int nNode = Clone(xNode);
-		if (node[nNode].l == node[nNode].r) {
-			node[nNode].value = value;
-			return nNode;
+		int oNode = xNode;
+		Clone(xNode);
+		if (node[xNode].l == node[xNode].r) {
+			node[xNode].value = value;
+			return xNode;
 		}
-		int mid = (node[nNode].l + node[nNode].r) >> 1;
-		if (mid >= x) node[nNode].lNode = Modify(node[xNode].lNode, x, value);
-		else node[nNode].rNode = Modify(node[xNode].rNode, x, value);
-		return nNode;
+		int mid = (node[xNode].l + node[xNode].r) >> 1;
+		if (mid >= x) node[xNode].lNode = Modify(node[oNode].lNode, x, value);
+		else node[xNode].rNode = Modify(node[oNode].rNode, x, value);
+		return xNode;
 	}
 	
 	int Add(int xNode, int x) {
-		int nNode = Clone(xNode); 
-		if (node[nNode].l == node[nNode].r) {
-			node[nNode].depth++;
-			return nNode;
+		int oNode = xNode;
+		Clone(xNode); 
+		if (node[xNode].l == node[xNode].r) {
+			node[xNode].depth++;
+			return xNode;
 		}
-		int mid = (node[nNode].l + node[nNode].r) >> 1;
-		if (mid >= x) node[nNode].lNode = Add(node[xNode].lNode, x);
-		else node[nNode].rNode = Add(node[xNode].rNode, x);
-		return nNode;
+		int mid = (node[xNode].l + node[xNode].r) >> 1;
+		if (mid >= x) node[xNode].lNode = Add(node[oNode].lNode, x);
+		else node[xNode].rNode = Add(node[oNode].rNode, x);
+		return xNode;
 	}
 
 	void Union(int version, int x, int y) {
-		root[version] = root[version - 1];
 		x = Find(version, x);
 		y = Find(version, y);
 		if (node[x].value != node[y].value) {
@@ -109,6 +111,7 @@ int main() {
 		switch(opt) {
 			case 1: {
 				scanf("%d%d", &a, &b);
+				PDS::root[i] = PDS::root[i - 1];
 				PDS::Union(i, a, b);
 				break;
 			}
@@ -119,9 +122,9 @@ int main() {
 			}
 			case 3: {
 				scanf("%d%d", &a, &b);
-				if (PDS::Check(i - 1, a, b)) printf("1\n");
-				else printf("0\n");
 				PDS::root[i] = PDS::root[i - 1];
+				if (PDS::Check(i, a, b)) printf("1\n");
+				else printf("0\n");
 				break;
 			}
 		}
