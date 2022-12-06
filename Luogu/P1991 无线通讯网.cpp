@@ -2,9 +2,9 @@
 #include <cmath>
 #include <algorithm>
 
-const int maxN = 1e3 + 10;
+const int maxP = 500 + 10;
 
-int n, k;
+int S, P;
 int x, y;
 
 namespace Island {
@@ -12,7 +12,7 @@ namespace Island {
 		int x, y;
 		int head;
 		int fa;
-	} vertex[maxN];
+	} vertex[maxP];
 	struct Edge {
 		int tail;
 		int head;
@@ -21,7 +21,7 @@ namespace Island {
 		bool operator<(Edge other) const {
 			return weight < other.weight;
 		}
-	} edge[maxN * maxN];
+	} edge[maxP * maxP];
 	int ecnt;
 
 	double Dis(int u, int v) {
@@ -56,7 +56,7 @@ namespace Island {
 
 	double Kruscal() {
 		std::sort(edge + 1, edge + ecnt + 1);
-		for (int i = 1; i <= n; i++) vertex[i].fa = i;
+		for (int i = 1; i <= P; i++) vertex[i].fa = i;
 		int cnt = 0;
 		for (int e = 1; e <= ecnt; e++) {
 			int tail = edge[e].tail;
@@ -67,15 +67,15 @@ namespace Island {
 			if (tail == head) continue;
 			Union(tail, head);
 			cnt++;
-			if (cnt == n - k + 1) return weight;
+			if (cnt == P - S) return weight;
 		}
 	}
 }
 
 int main() {
-	scanf("%d%d", &n, &k);
-	for (int i = 1; i <= n; i++) scanf("%d%d", &Island::vertex[i].x, &Island::vertex[i].y);
-	for (int i = 1; i <= n; i++) for (int j = 1; j <= n; j++) if (i != j) Island::AddEdge(i, j);
+	scanf("%d%d", &S, &P);
+	for (int i = 1; i <= P; i++) scanf("%d%d", &Island::vertex[i].x, &Island::vertex[i].y);
+	for (int i = 1; i <= P; i++) for (int j = 1; j < i; j++) Island::AddEdge(i, j);
 	double ans = Island::Kruscal();
 	printf("%.2lf\n", ans);
 	return 0;
