@@ -1,17 +1,17 @@
 #include <cstdio>
 #include <cstring>
 
-const unsigned long long mod = 998244353;
+const long long mod = 998244353;
 const int maxN = 1e3 + 10;
 const int maxM = 1e3 + 10;
 
 int T, id;
 int n, m, c, f;
 int plant[maxN][maxM];
-int right[maxN][maxM];
-int lower[maxN][maxM];
-int guaic[maxN][maxM];
-int guaif[maxN][maxM];
+long long right[maxN][maxM];
+long long lower[maxN][maxM];
+long long guaic[maxN][maxM];
+long long guaif[maxN][maxM];
 
 int main() {
 	scanf("%d%d", &T, &id);
@@ -29,15 +29,15 @@ int main() {
             if (!plant[i + 1][j]) guaic[i][j] = guaic[i + 1][j] + right[i + 1][j];
             if (!plant[i][j]) guaif[i][j] = guaif[i + 1][j] + right[i + 1][j] * lower[i + 1][j];
 		}
-		unsigned long long Vc = 0;
-		unsigned long long Vf = 0;
+		long long Vc = 0;
+		long long Vf = 0;
 		for (int x1 = 1; x1 <= n; x1++) for (int y0 = 1; y0 <= m; y0++) if (!plant[x1][y0]) {
 			Vc = (Vc + right[x1][y0] * guaic[x1 + 1][y0]) % mod;
             Vf = (Vf + right[x1][y0] * guaif[x1 + 1][y0]) % mod;
 		}
 		Vc = Vc * c % mod;
 		Vf = Vf * f % mod;
-		printf("%llu %llu\n", Vc, Vf);
+		printf("%lld %lld\n", Vc, Vf);
 	}
 	return 0;
 }
