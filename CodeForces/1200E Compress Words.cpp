@@ -7,10 +7,9 @@ const int maxN = 1e6 + 10;
 int n;
 std::string str[maxN];
 std::string ans;
-int next[maxN];
 
 int getNext(std::string s) {
-    next[0] = -1;
+    int next[maxN] = {-1};
     int i = 0;
     int j = -1;
     while (i < s.size()) {
