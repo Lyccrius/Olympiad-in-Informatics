@@ -5,7 +5,7 @@ const int sqrtN = 387;
 
 int n, m;
 int value[maxN + 10];
-int block[maxN + 10][sqrtN + 10];
+int block[sqrtN + 10][sqrtN + 10];
 
 void PreWork() {
     for (int i = 1; i <= n; i++) {
