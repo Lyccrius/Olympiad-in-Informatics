@@ -1,12 +1,12 @@
 #include <cstdio>
 #include <algorithm>
- 
+
 const int maxN = 50 + 10;
- 
+
 int t;
 int n;
 long long a[maxN];
- 
+
 void mian() {
     scanf("%d", &n);
     for (int i = 1; i <= n; i++) scanf("%lld", &a[i]);
@@ -18,7 +18,7 @@ void mian() {
     printf("%lld\n", (a[n] + n - 1) * 2022);
     return;
 }
- 
+
 int main() {
     scanf("%d", &t);
     while (t--) mian();
