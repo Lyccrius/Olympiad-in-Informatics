@@ -9,8 +9,8 @@ void promote() {
 
 typedef long long lxl;
 
-const lxl maxN = 1e5;
-const lxl logN = 17;
+const int maxN = 1e5;
+const int logN = 17;
 
 int n;
 int c[maxN + 10];
@@ -19,17 +19,17 @@ int x[maxN + 10], y[maxN + 10];
 struct SegmentTree {
     struct Node {
         int l, r;
-        lxl lNode;
-        lxl rNode;
-        lxl val;
+        int lNode;
+        int rNode;
+        int val;
         lxl res;
     } node[maxN * 4 + maxN * logN];
 
-    lxl ncnt;
+    int ncnt;
     
-    lxl root[maxN + 10];
+    int root[maxN + 10];
 
-    void Build(lxl &xNode, int l, int r){
+    void Build(int &xNode, int l, int r){
         ncnt++;
         xNode = ncnt;
         node[xNode].l = l;
@@ -37,9 +37,9 @@ struct SegmentTree {
         return;
     }
 
-    void PushUp(lxl xNode) {
-        lxl lNode = node[xNode].lNode;
-        lxl rNode = node[xNode].rNode;
+    void PushUp(int xNode) {
+        int lNode = node[xNode].lNode;
+        int rNode = node[xNode].rNode;
         if (node[lNode].val > node[rNode].val) {
             node[xNode].val = node[lNode].val;
             node[xNode].res = node[lNode].res;
@@ -55,13 +55,13 @@ struct SegmentTree {
         return;
     }
 
-    void Modify(lxl &xNode, int p) {
+    void Modify(int &xNode, int p) {
         if (node[xNode].l == node[xNode].r) {
             node[xNode].val++;
             node[xNode].res = p;
             return;
         }
-        lxl mid = (node[xNode].l + node[xNode].r) / 2;
+        int mid = (node[xNode].l + node[xNode].r) / 2;
         if (p <= mid) {
             if (node[xNode].lNode == 0) Build(node[xNode].lNode, node[xNode].l, mid);
             Modify(node[xNode].lNode, p);
@@ -74,7 +74,7 @@ struct SegmentTree {
         return;
     }
 
-    void Merge(lxl &xNode, lxl yNode) {
+    void Merge(int &xNode, int yNode) {
         if (xNode == 0 || yNode == 0) {
             xNode = xNode ^ yNode;
             return;
@@ -90,23 +90,23 @@ struct SegmentTree {
         return;
     }
 
-    lxl Query(lxl xNode) {
+    lxl Query(int xNode) {
         return node[xNode].res;
     }
 } SGT;
 
 namespace graph {
     struct Vertex {
-        lxl head;
+        int head;
         lxl res;
     } vertex[maxN + 10];
 
     struct Edge {
         int head;
-        lxl next;
+        int next;
     } edge[maxN * 2 + 10];
 
-    lxl ecnt;
+    int ecnt;
 
     void addEdge(int tail, int head) {
         ecnt++;
@@ -117,7 +117,7 @@ namespace graph {
     }
 
     void DFS(int u, int from) {
-        for (lxl e = vertex[u].head; e; e = edge[e].next) {
+        for (int e = vertex[u].head; e; e = edge[e].next) {
             int v = edge[e].head;
             if (v == from) continue;
             DFS(v, u);
