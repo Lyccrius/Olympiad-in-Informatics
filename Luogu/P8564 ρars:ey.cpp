@@ -37,14 +37,16 @@ namespace graph {
             int v = edge[e].head;
             if (v == from) continue;
             DFS(v, u);
-            vertex[u].size += vertex[v].size;
-            for (int j = vertex[u].size - 2; j >= 1; j--) {
-                for (int k = std::max(1, j - vertex[u].size + vertex[v].size); k <= std::min(j, vertex[v].size - 1); k++) {
-                    g[u][j] = std::min(g[u][j], g[u][j - k] + g[v][k]);
+            for (int j = vertex[u].size - 1; j >= 0; j--) {
+                for (int k = vertex[v].size - 1; k >= 0; k--) {
+                    g[u][j + k] = std::min(g[u][j + k], g[u][j] + g[v][k]);
                 }
             }
+            vertex[u].size += vertex[v].size;
         }
-        for (int i = 0; i <= vertex[u].size - 1; i++) g[u][vertex[u].size - 1] = std::min(g[u][vertex[u].size - 1], g[u][i] + f[vertex[u].size - i]);
+        for (int i = 0; i <= vertex[u].size - 1; i++) {
+            g[u][vertex[u].size - 1] = std::min(g[u][vertex[u].size - 1], g[u][i] + f[vertex[u].size - i]);
+        }
         return;
     }
 }
