@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <iostream>
 
 const int maxN = 5e4;
 const int sqrtN = 223;
@@ -35,12 +35,12 @@ struct BlockArray {
 
     void Modify(int l, int r, int c) {
         if (array[l].bel == array[r].bel) {
-            for (int a = l; a <= r; a++) array[a].val += c;
+            for (int i = l; i <= r; i++) array[i].val += c;
             return;
         }
         for (int a = l; a <= block[array[l].bel].r; a++) array[a].val += c;
         for (int a = block[array[r].bel].l; a <= r; a++) array[a].val += c;
-        for (int b = array[l].bel + 1; b <= array[r].bel - 1; b++) block[b].tag += c;
+        for (int b = array[l].bel + 1; b < array[r].bel; b++) block[b].tag += c;
         return;
     }
 
@@ -50,13 +50,13 @@ struct BlockArray {
 } BA;
 
 int main() {
-    scanf("%d", &n);
-    for (int i = 1; i <= n; i++) scanf("%d", &a[i]);
+    std::cin >> n;
+    for (int i = 1; i <= n; i++) std::cin >> a[i];
     BA.Init();
     for (int i = 1; i <= n; i++) {
-        scanf("%d%d%d%d", &opt, &l, &r, &c);
+        std::cin >> opt >> l >> r >> c;
         if (opt == 0) BA.Modify(l, r, c);
-        else printf("%d\n", BA.Query(r));
+        else std::cout << BA.Query(r) << '\n';
     }
     return 0;
 }
