@@ -1,16 +1,21 @@
 #include <cstdio>
 #include <algorithm>
 
-long long n, k;
+int n, k;
+
+long long solve(long long n, long long k) {
+    long long ret = n * k;
+    for (long long i = 1, j, t; i <= n; i = j + 1) {
+        t = k / i;
+        if (t) j = std::min(k / t, n);
+        else j = n;
+        ret -= t * (j - i + 1) * (i + j) / 2;
+    }
+    return ret;
+}
 
 int main() {
-    scanf("%lld%lld", &n, &k);
-    long long ans = n * k;
-    for (long long l = 1, r; l <= n; l = r + 1) {
-        if (k / l) r = std::min(k / (k / l), n);
-        else r = n;
-        ans -= (k / l) * (r - l + 1) * (l + r) / 2;
-    }
-    printf("%lld\n", ans);
+    scanf("%d%d", &n, &k);
+    printf("%lld\n", solve(n, k));
     return 0;
 }
