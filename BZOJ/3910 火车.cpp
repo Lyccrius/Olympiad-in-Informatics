@@ -112,7 +112,7 @@ namespace graph {
         //printf("PushUp(%d, %d)\n", u, v);
         vertex[u].tag = true;
         DSU.Union(u, ST.f[u][0]);
-        PushUp(DSU.Find(ST.f[u][0]), v);
+        PushUp(DSU.Find(u), v);
         return;
     }
 }
