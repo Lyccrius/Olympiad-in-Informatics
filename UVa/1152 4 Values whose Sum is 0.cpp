@@ -1,7 +1,7 @@
 #include <iostream>
-#include <map>
+#include <unordered_map>
 
-typedef std::map<int, int> mii;
+typedef std::unordered_map<int, int> mii;
 
 const int maxN = 4000;
 
@@ -17,6 +17,7 @@ void mian() {
     for (int i = 1; i <= n; i++) for (int j = 1; j <= n; j++) cnt[A[i] + B[j]]++;
     for (int i = 1; i <= n; i++) for (int j = 1; j <= n; j++) ans += cnt[- C[i] - D[j]];
     std::cout << ans << '\n';
+    if (T) std::cout << '\n';
     return;
 }
 
