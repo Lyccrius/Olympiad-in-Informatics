@@ -6,7 +6,6 @@ typedef long long lxl;
 const int maxN = 2e5;
 const int mod = 1e9 + 7;
 
-
 int n, x, y;
 int u, v;
 
