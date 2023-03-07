@@ -15,7 +15,7 @@ struct Point {
     int y;
 
     bool operator<(const Point &other) const {
-        if (x != other.x) return x > other.x;
+        if (x != other.x) return x < other.x;
         return y < other.y;
     }
 } point[maxN + 10];
@@ -74,8 +74,8 @@ int main() {
         s = point[i].y;
         j = i;
         while (j <= n && point[j].x == point[i].x) {
-            if (point[j].x == l[point[j].y]) SGT.Modify(1, 1, raw.size(), point[j].y, - 1);
-            if (point[j].x == r[point[j].y]) SGT.Modify(1, 1, raw.size(), point[j].y, 1);
+            if (point[j].x == r[point[j].y]) SGT.Modify(1, 1, raw.size(), point[j].y, - 1);
+            if (point[j].x == l[point[j].y]) SGT.Modify(1, 1, raw.size(), point[j].y, 1);
             t = point[j].y;
             j++;
         }
