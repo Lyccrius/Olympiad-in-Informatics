@@ -41,22 +41,15 @@ namespace graph {
     }
 
     void DP(int u, int ban, lxl f[][2]) {
+        f[u][1] = vertex[u].weight;
         for (int e = vertex[u].head; ~e; e = edge[e].next) {
             int v = edge[e].head;
             if (edge[e].del) continue;
             DP(v, ban, f);
             f[u][0] += std::max(f[v][0], f[v][1]);
-        }
-        if (u == ban) {
-            f[u][1] = - inf;
-            return;
-        }
-        f[u][1] = vertex[u].weight;
-        for (int e = vertex[u].head; ~e; e = edge[e].next) {
-            int v = edge[e].head;
-            if (edge[e].del) continue;
             f[u][1] += f[v][0];
         }
+        if (u == ban) f[u][1] = - inf;
         return;
     }
 
