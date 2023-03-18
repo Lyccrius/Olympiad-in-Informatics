@@ -3,11 +3,18 @@
 #include <vector>
 #include <set>
 
+void promote() {
+    std::ios::sync_with_stdio(0);
+    std::cin.tie(0);
+    std::cout.tie(0);
+    return;
+}
+
 typedef char chr;
 typedef std::vector<int> vic;
 typedef std::set<int> sic;
 
-const int maxN = 2e5;
+const int maxN = 2e5 + 10;
 
 int n;
 
@@ -43,6 +50,18 @@ struct SegmentTree {
         return;
     }
 
+    void Update(int u, int l, int r, int pos, int val) {
+        if (l == r) {
+            node[u].val = std::max(node[u].val, val);
+            return;
+        }
+        int mid = (l + r) / 2;
+        if (pos <= mid) Update(u * 2, l, mid, pos, val);
+        if (pos >= mid + 1) Update(u * 2 + 1, mid + 1, r, pos, val);
+        PushUp(u);
+        return;
+    }
+
     int Query(int u, int l, int r, int pos, int val) {
         if (l == r) {
             if (node[u].val > val) {
@@ -62,7 +81,7 @@ struct SegmentTree {
 
 void add(int x, int y) {
     s[x].insert(y);
-    SGT.Modify(1, 1, rawX.size(), x, y);
+    SGT.Update(1, 1, rawX.size(), x, y);
     return;
 }
 
@@ -75,7 +94,7 @@ void remove(int x, int y) {
 void find(int x, int y) {
     int pos = SGT.Query(1, 1, rawX.size(), x + 1, y);
     if (pos) {
-        std::cout << rawX[pos - 1] << ' ' << rawX[*s[pos - 1].upper_bound(y) - 1] << '\n';
+        std::cout << rawX[pos - 1] << ' ' << rawY[*s[pos].upper_bound(y) - 1] << '\n';
     } else {
         std::cout << - 1 << '\n';
     }
@@ -83,10 +102,13 @@ void find(int x, int y) {
 }
 
 int main() {
+    promote();
     std::cin >> n;
     for (int i = 1; i <= n; i++) std::cin >> option[i].type >> option[i].x >> option[i].y;
     for (int i = 1; i <= n; i++) rawX.push_back(option[i].x);
     for (int i = 1; i <= n; i++) rawY.push_back(option[i].y);
+    rawX.push_back(maxN + 10);
+    rawY.push_back(maxN + 10);
     std::sort(rawX.begin(), rawX.end());
     std::sort(rawY.begin(), rawY.end());
     rawX.erase(std::unique(rawX.begin(), rawX.end()), rawX.end());
