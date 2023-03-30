@@ -14,6 +14,7 @@ int main() {
 	p[3] = 8;
 	p[4] = 16;
 	for (int i = 5; i <= maxN; i++) {
+        p[i] = 2 * p[i - 1];
 		f[i] = 2 * f[i - 1] + p[i - 4] - f[i - 4];
 	}
 	while (std::cin >> n && n) std::cout << f[n] << '\n';

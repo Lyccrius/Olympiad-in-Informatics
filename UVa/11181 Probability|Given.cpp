@@ -43,6 +43,6 @@ void mian() {
 
 int main() {
 	std::cout << std::setiosflags(std::ios::fixed);
-	while (std::cin >> n >> r && n && r) mian();
+	while (std::cin >> n >> r && n) mian();
 	return 0;
 }
