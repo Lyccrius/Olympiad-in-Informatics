@@ -12,7 +12,7 @@ int n;
 
 void mian() {
     n = strlen(s + 1);
-    std::memset(f, 0, sizeof(0));
+    std::memset(f, 0, sizeof(f));
     for (int i = 1; i <= n; i++) f[i][i] = 1;
     for (int len = 2; len <= n; len++) {
         for (int i = 1; i <= n; i++) {
