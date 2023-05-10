@@ -6,11 +6,11 @@ typedef pair<int, int> pii;
 typedef pair<pii, int> ppi;
 
 int N;
-ppi cow[500010];
+ppi cow[500005];
 
 int cnt = 0;
-int res[500010];
-int bak[500010];
+int res[500005];
+int bak[500005];
 
 bool cmp(ppi a, ppi b) {
     return a.first.first < b.first.first;

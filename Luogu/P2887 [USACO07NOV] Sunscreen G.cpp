@@ -4,8 +4,8 @@ using namespace std;
 
 int C, L;
 
-pair<int, int>cow[2510];
-pair<int, int>cre[2510];
+pair<int, int>cow[2505];
+pair<int, int>cre[2505];
 
 bool cmp(pair<int, int> a, pair<int, int> b) {
     return a.first > b.first;

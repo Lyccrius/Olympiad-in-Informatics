@@ -7,7 +7,7 @@ map<pair<int, int>, bool> existed;
 int N, P, H, M;
 int A, B;
 
-int C[100010], D[100010];
+int C[100005], D[100005];
 
 int main() {
     cin >> N >> P >> H >> M;

@@ -8,7 +8,7 @@ int x;
 int num[maxX];
 int ans[maxX];
 
-bool Check(int a) {
+bool check(int a) {
 	while (a) {
 		if (a % 10 == 7) return true;
 		a /= 10;
@@ -16,17 +16,17 @@ bool Check(int a) {
 	return false;
 }
 
-void Sign(int a) {
+void sign(int a) {
 	for (int i = 1; i * a < maxX; i++) num[i * a] = true;
 	return;
 }
 
-void Init() {
+void init() {
 	int last = 0;
 	for (int i = 1; i < maxX; i++) {
 		if (num[i]) continue;
-		if (Check(i)) {
-			Sign(i);
+		if (check(i)) {
+			sign(i);
 			continue;
 		}
 		ans[last] = i;
@@ -36,7 +36,7 @@ void Init() {
 }
 
 int main() {
-	Init();
+	init();
 	scanf("%d", &T);
 	while (T--) {
 		scanf("%d", &x);

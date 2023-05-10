@@ -8,7 +8,7 @@ char opt[5];
 
 int t;
 
-pair<string, int> a[100010];
+pair<string, int> a[100005];
 
 int cal(int bit, int now) {
     for (int i = 1; i <= n; i ++) {

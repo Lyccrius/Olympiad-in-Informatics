@@ -45,7 +45,7 @@ int main(){
 			}
 		}
 		
-		if (i % 2){
+		if (i & 1){
 			if (q.size() > p.size()){
 				cout << q.top() << endl;
 			}else{

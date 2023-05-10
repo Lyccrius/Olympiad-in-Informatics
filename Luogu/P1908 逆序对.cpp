@@ -4,8 +4,8 @@ using namespace std;
 
 int n;
 
-long long a[500010];
-long long t[500010];
+long long a[500005];
+long long t[500005];
 
 long long cnt;
 

@@ -4,7 +4,7 @@ using namespace std;
 
 int N, R;
 int X, Y, W;
-int S[5010][5010];
+int S[5005][5005];
 
 int main() {
     cin >> N >> R;

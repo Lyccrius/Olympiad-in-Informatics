@@ -12,7 +12,7 @@ int n, m, k;
 long long s[maxN];
 int x, y;
 
-namespace Holiday {
+namespace Graph {
 	struct Vertex {
 		int dis;
 		int head;
@@ -78,9 +78,9 @@ namespace Holiday {
 
 int main() {
 	scanf("%d%d%d", &n, &m, &k);
-	for (int i = 2; i <= n; i++) scanf("%lld", &s[i]), Holiday::vertex[i].s = s[i];
-	for (int i = 1; i <= m; i++) scanf("%d%d", &x, &y), Holiday::AddEdge(x, y), Holiday::AddEdge(y, x);
-	Holiday::PreWork();
-	Holiday::Solve();
+	for (int i = 2; i <= n; i++) scanf("%lld", &s[i]), Graph::vertex[i].s = s[i];
+	for (int i = 1; i <= m; i++) scanf("%d%d", &x, &y), Graph::AddEdge(x, y), Graph::AddEdge(y, x);
+	Graph::PreWork();
+	Graph::Solve();
 	return 0;
 }

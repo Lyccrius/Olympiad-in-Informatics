@@ -2,7 +2,7 @@
 
 using namespace std;
 
-const int maxn = 1e5 + 10;
+const int maxn = 1e5 + 5;
 
 int N, M;
 int a[maxn];

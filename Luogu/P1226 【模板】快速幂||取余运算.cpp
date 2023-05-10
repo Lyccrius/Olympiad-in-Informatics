@@ -4,7 +4,7 @@ using namespace std;
 
 int a, b, p;
 
-int fast_pow(int a, int b, int p) {
+int pow(int a, int b, int p) {
     int ans = 1 % p;
     
     while (b) {
@@ -19,7 +19,7 @@ int fast_pow(int a, int b, int p) {
 int main() {
 	cin >> a >> b >> p;
 	
-	printf("%d^%d mod %d=%d\n", a, b, p, fast_pow(a, b, p));
+	printf("%d^%d mod %d=%d\n", a, b, p, pow(a, b, p));
 	
 	return 0;
 }
