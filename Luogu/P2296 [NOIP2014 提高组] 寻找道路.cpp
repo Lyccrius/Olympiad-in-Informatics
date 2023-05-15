@@ -3,7 +3,7 @@
 
 const int maxN = 1e4;
 const int maxM = 2e5;
-const int inf = 1e9;
+const int inf = 1e9 + 10;
 
 int n, m;
 int x, y;

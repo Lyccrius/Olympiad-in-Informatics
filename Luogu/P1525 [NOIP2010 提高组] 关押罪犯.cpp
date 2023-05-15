@@ -17,7 +17,7 @@ namespace graph {
         int head;
         int next;
         int weight;
-    } edge[maxM * 2 + 10];
+    } edge[2 * maxM + 10];
 
     int ecnt;
 
@@ -84,6 +84,6 @@ int main() {
         if (check(mid)) r = mid;
         else l = mid + 1;
     }
-    std::cout << l;
+    std::cout << l << '\n';
     return 0;
 }

@@ -21,7 +21,7 @@ struct SegmentTree {
         int rNode;
         int val;
         int tag;
-    } node[maxN << 2];
+    } node[4 * maxN + 10];
 
     void PushUp(int xNode) {
         node[xNode].val = node[node[xNode].lNode].val + node[node[xNode].rNode].val;

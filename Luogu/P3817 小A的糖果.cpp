@@ -1,10 +1,12 @@
 #include <cstdio>
 
-const int maxN = 1e5 + 10;
+typedef long long lxl;
+
+const int maxN = 1e5;
 
 int n, x;
-int a[maxN];
-long long res;
+int a[maxN + 10];
+lxl res;
 
 int main() {
     scanf("%d%d", &n, &x);

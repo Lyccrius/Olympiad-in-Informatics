@@ -3,9 +3,9 @@
 const int maxN = 30000;
 const int maxP = 100000;
 
-int N, P;
+int p;
 char op;
-int X, Y;
+int x, y;
 
 struct DisjointSetUnion {
     struct Node {
@@ -43,16 +43,16 @@ struct DisjointSetUnion {
 
 int main() {
     DSU.Init();
-    std::cin >> P;
-    while (P--) {
+    std::cin >> p;
+    while (p--) {
         std::cin >> op;
         if (op == 'M') {
-            std::cin >> X >> Y;
-            DSU.Union(X, Y);
+            std::cin >> x >> y;
+            DSU.Union(x, y);
         } else {
-            std::cin >> X;
-            DSU.Find(X);
-            std::cout << DSU.node[X].res << '\n';
+            std::cin >> x;
+            DSU.Find(x);
+            std::cout << DSU.node[x].res << '\n';
         }
     }
     return 0;

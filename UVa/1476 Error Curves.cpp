@@ -2,7 +2,7 @@
 #include <algorithm>
 
 const int maxN = 1e4;
-const double inf = 1e9;
+const double inf = 1e9 + 10;
 const double eps = 1e-9;
 
 int T;

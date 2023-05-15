@@ -5,7 +5,7 @@
 const int maxN = 5e4;
 const int maxM = 5e4;
 const int logN = 16;
-const int inf = 1e9;
+const int inf = 1e9 + 10;
 
 int n;
 int u, v, w;

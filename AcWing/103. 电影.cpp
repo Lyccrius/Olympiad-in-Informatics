@@ -2,14 +2,17 @@
 
 using namespace std;
 
-int n, m;
-int a[200010];
-int b[200010];
-int c[200010];
+const int maxN = 200000;
+const int maxM = 600000;
 
-int lan[600010], tot;
-int uni[600010], cnt;
-int num[600010];
+int n, m;
+int a[maxN + 10];
+int b[maxN + 10];
+int c[maxN + 10];
+
+int lan[maxM + 10], tot;
+int uni[maxM + 10], cnt;
+int num[maxM + 10];
 
 int query(int x) {
     return lower_bound(uni + 1, uni + cnt + 1, x) - uni;

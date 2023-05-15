@@ -2,9 +2,11 @@
 
 using namespace std;
 
+typedef long long lxl;
+
 int n;
 int a[500010];
-long long op;
+lxl op;
 
 void merge(int l, int r) {
     if (l == r) {

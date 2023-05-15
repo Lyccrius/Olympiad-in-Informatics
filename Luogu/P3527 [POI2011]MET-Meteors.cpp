@@ -2,15 +2,15 @@
 #include <vector>
 #include <algorithm>
 
-const int maxN = 3e5 + 10;
-const int maxM = 3e5 + 10;
-const int maxK = 3e5 + 10;
+const int maxN = 3e5;
+const int maxM = 3e5;
+const int maxK = 3e5;
 
 int n, m;
-int o[maxM];
-int p[maxN];
+int o[maxM + 10];
+int p[maxN + 10];
 int k;
-int l[maxK], r[maxK], a[maxK];
+int l[maxK + 10], r[maxK + 10], a[maxK + 10];
 
 struct Country {
     int id;

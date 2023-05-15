@@ -3,7 +3,8 @@
 #include <vector>
 #include <stack>
 
-typedef std::vector<std::pair<int, int> > vpc;
+typedef std::pair<int, int> pii;
+typedef std::vector<pii> vpc;
 typedef std::vector<int> vic;
 typedef std::stack<int> sic;
 

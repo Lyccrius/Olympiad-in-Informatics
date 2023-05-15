@@ -1,6 +1,6 @@
 #include <cstdio>
 
-const int maxn = 1e5+ 10;
+const int maxn = 1e5 + 10;
 const int mod = 99991;
 
 int n;

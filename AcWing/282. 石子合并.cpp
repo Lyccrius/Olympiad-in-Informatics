@@ -2,12 +2,12 @@
 #include <algorithm>
 
 const int inf = 1e9 + 10;
-const int maxN = 300 + 10;
+const int maxN = 300;
 
 int N;
-int w[maxN];
-int pre[maxN];
-int F[maxN][maxN];
+int w[maxN + 10];
+int pre[maxN + 10];
+int F[maxN + 10][maxN + 10];
 
 int main() {
 	scanf("%d", &N);

@@ -3,7 +3,7 @@
 
 const int maxN = 3e5;
 const int maxM = 3e5;
-const int logN = 19;
+const int logN = 20;
 
 int n, m;
 int a[maxN + 10], b[maxN + 10], t[maxN + 10];
@@ -26,7 +26,7 @@ namespace graph {
         int head;
         int next;
         int weight;
-    } edge[maxM * 2 + 10];
+    } edge[2 * maxM + 10];
 
     int ecnt;
 
@@ -131,7 +131,7 @@ namespace graph {
             if (check(mid)) r = mid;
             else l = mid + 1;
         }
-        std::cout << l;
+        std::cout << l << '\n';
         return;
     }
 }
