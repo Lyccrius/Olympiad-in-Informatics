@@ -89,7 +89,7 @@ namespace graph {
     }
 }
 
-signed main() {
+int main() {
     std::cin >> n >> m;
     for (int i = 1; i <= m; i++) std::cin >> u >> v >> w >> s, graph::addEdge(u, v, w, s);
     graph::DFS0(1, 0, 0);
