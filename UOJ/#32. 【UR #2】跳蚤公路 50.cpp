@@ -32,8 +32,8 @@ int main() {
     for (int i = 1; i <= m; i++) std::cin >> u >> v >> w >> s, f[u][v][s + n] = std::min(f[u][v][s + n], (lxl) w);
     for (int k = 1; k <= n; k++) {
         for (int i = 1; i <= n; i++) {
-                for (int k1 = - n; k1 <= n; k1++) {
-            for (int j = 1; j <= n; j++) {
+            for (int k1 = - n; k1 <= n; k1++) {
+                for (int j = 1; j <= n; j++) {
                     if (f[i][k][k1 + n] == inf) continue;
                     for (int k2 = - n; k2 <= n; k2++) {
                         if (f[k][j][k2 + n] == inf) continue;
