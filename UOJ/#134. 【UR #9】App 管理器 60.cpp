@@ -47,7 +47,7 @@ namespace graph {
             d[i] = true;
             c[i] = edge[e].c;
             if (vertex[v].dfn) continue;
-            DFS(v, u);
+            DFS(v);
         }
         return;
     }
@@ -121,7 +121,7 @@ namespace t456 {
 
     void mian() {
         for (int i = 1; i <= m; i++) graph::addEdge(a[i], b[i], i, 0), graph::addEdge(b[i], a[i], i, 1);
-        graph::DFS(1, 0);
+        graph::DFS(1);
         for (int i = 1; i <= m; i++) std::cout << c[i] << '\n';
         return;
     }
