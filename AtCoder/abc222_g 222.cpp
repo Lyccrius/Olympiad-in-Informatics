@@ -43,7 +43,6 @@ lxl exGCD(lxl a, lxl &x, lxl b, lxl &y) {
 
 lxl BSGS(lxl a, lxl b, lxl p) {
     b = (b % p + p) % p;
-    //if (1 % p == b % p) return 0;
     mll hash;
     lxl t = sqrt(p) + 1;
     lxl w = 1;
@@ -58,7 +57,6 @@ lxl BSGS(lxl a, lxl b, lxl p) {
 
 lxl exBSGS(lxl a, lxl b, lxl p) {
     b = (b % p + p) % p;
-    //if (1 % p == b % p) return 0;
     lxl x, y;
     lxl d = exGCD(a, x, p, y);
     if (d > 1) {

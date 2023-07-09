@@ -43,8 +43,6 @@ struct SegmentTree {
     }
 
     lxl Ask(int u, int l, int r, int k) {
-        //printf("Ask(%d, [%d, %d], %d), cnt = %d, val = %d\n", u, l, r, k, node[u].cnt, node[u].val);
-        //if (node[u].cnt >= k) return node[u].val;
         if (l == r) return 1ll * k * l;
         int mid = (l + r) / 2;
         if (node[node[u].rson].cnt >= k) return Ask(node[u].rson, mid + 1, r, k);
